@@ -8,6 +8,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { UserManagementComponent } from './user-management/user-management.component';
+import { AllUserManagementComponent } from './all-user-management/all-user-management.component';
+import { BlockTemplateComponent } from './sharedModule/block-template/block-template.component';
+import { BlockUIModule } from 'ng-block-ui';
 
 
 @NgModule({
@@ -15,14 +18,22 @@ import { UserManagementComponent } from './user-management/user-management.compo
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    UserManagementComponent
+    UserManagementComponent,
+    AllUserManagementComponent,
+    BlockTemplateComponent
+  ],
+  entryComponents: [
+    BlockTemplateComponent // Make sure to add it to the entry components
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BlockUIModule.forRoot({
+      template: BlockTemplateComponent
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
