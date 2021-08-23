@@ -35,10 +35,10 @@ export class AppComponent {
   }
   get isAdmin():boolean
   {
-    return this.user.role=='Admin';
+    return this.user.roles.indexOf('Admin')>-1;
   }
   get isUser():boolean
   {
-    return this.user.role=='User';
+    return this.user.roles.indexOf('User')>-1;
   }
 }
